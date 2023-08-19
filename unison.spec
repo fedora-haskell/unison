@@ -3,8 +3,8 @@
 %undefine _enable_debug_packages
 
 Name:           unison
-Version:        0.0.0.%{milestone}
-Release:        1%{?dist}
+Version:        %{milestone}
+Release:        2%{?dist}
 Summary:        Unison language
 
 License:        MIT

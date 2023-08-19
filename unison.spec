@@ -10,6 +10,7 @@ Summary:        Unison language
 License:        MIT
 URL:            https://www.unison-lang.org/
 Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{milestone}.tar.gz#/unison-release-%{milestone}.tar.gz
+Patch0:         unison-version.patch
 
 BuildRequires:  stack
 BuildRequires:  ghc9.2
@@ -20,7 +21,8 @@ Unison programming language.
 
 
 %prep
-%autosetup -n unison-release-%{milestone}
+%setup -q -n unison-release-%{milestone}
+sed s/@MILESTONE@/%{milestone}/ %{PATCH0} | patch -p1
 
 
 %build

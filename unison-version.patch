@@ -5,6 +5,6 @@
           -- Marks version with a `'` suffix if building on a dirty worktree.
           let getTag = "git" $| ["describe", "--tags", "--always", "--dirty='"]
 -         tag <- getTag $? pure "unknown"
-+         tag <- getTag $? pure "release/@MILESTONE@"
++         tag <- getTag $? pure "release/@VERSION@"
           pure (TupE [Just . LitE . StringL . unpack $ tag, Just . LitE . StringL . unpack $ date])
       )

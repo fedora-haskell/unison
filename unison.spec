@@ -1,15 +1,13 @@
-%global milestone M5h
-
 %undefine _enable_debug_packages
 
 Name:           unison
-Version:        %{milestone}
+Version:        0.5.11
 Release:        1%{?dist}
 Summary:        Unison language
 
 License:        MIT
 URL:            https://www.unison-lang.org/
-Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{milestone}.tar.gz#/unison-release-%{milestone}.tar.gz
+Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{version}.tar.gz#/unison-release-%{version}.tar.gz
 Patch0:         unison-version.patch
 
 BuildRequires:  stack
@@ -21,8 +19,8 @@ Unison programming language.
 
 
 %prep
-%setup -q -n unison-release-%{milestone}
-sed s/@MILESTONE@/%{milestone}/ %{PATCH0} | patch -p1
+%setup -q -n unison-release-%{version}
+sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
 
 
 %build
@@ -42,6 +40,10 @@ cp -p ~/.local/bin/unison %{buildroot}%{_bindir}
 
 
 %changelog
+* Fri Dec 15 2023 Jens Petersen <petersen@redhat.com> - 0.5.11-1
+- update to 0.5.11 (new upstream version format instead of M5k)
+- https://github.com/unisonweb/unison/releases/tag/release%2F0.5.11
+
 * Sun Nov 19 2023 Jens Petersen <petersen@redhat.com> - M5h-1
 - update to M5h
 

@@ -1,10 +1,10 @@
-%global milestone M5c
+%global milestone M5h
 
 %undefine _enable_debug_packages
 
 Name:           unison
 Version:        %{milestone}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Unison language
 
 License:        MIT
@@ -42,5 +42,8 @@ cp -p ~/.local/bin/unison %{buildroot}%{_bindir}
 
 
 %changelog
+* Sun Nov 19 2023 Jens Petersen <petersen@redhat.com> - M5h-1
+- update to M5h
+
 * Sat Aug 19 2023 Jens Petersen <petersen@redhat.com> - M5c-1
 - initial package

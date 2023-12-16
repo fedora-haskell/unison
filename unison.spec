@@ -27,7 +27,11 @@ sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
 
 
 %install
-LANG=C.utf8 stack --system-ghc install
+stack-symlink-distro-ghc 9.2.8
+%ifarch ppc64le
+mv $HOME/.stack/programs/{$(arch),ppc64}-linux
+%endif
+LANG=C.utf8 stack --no-install-ghc --system-ghc install
 
 mkdir -p %{buildroot}%{_bindir}
 cp -p ~/.local/bin/unison %{buildroot}%{_bindir}

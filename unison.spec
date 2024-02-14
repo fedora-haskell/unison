@@ -27,10 +27,10 @@ sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
 
 
 %install
-stack-symlink-distro-ghc 9.2.8
-%ifarch ppc64le
-mv $HOME/.stack/programs/{$(arch),ppc64}-linux
-%endif
+stack-symlink-distro-ghc 9.2.8 || :
+if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
+mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
+fi
 LANG=C.utf8 stack --no-install-ghc --system-ghc install
 
 mkdir -p %{buildroot}%{_bindir}

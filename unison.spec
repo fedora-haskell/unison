@@ -1,8 +1,8 @@
 %undefine _enable_debug_packages
 
 Name:           unison
-Version:        0.5.11
-Release:        2%{?dist}
+Version:        0.5.16
+Release:        1%{?dist}
 Summary:        Unison language
 
 License:        MIT
@@ -46,12 +46,15 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Wed Feb 14 2024 Jens Petersen <petersen@redhat.com> - 0.5.16-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.16
+
 * Fri Dec 15 2023 Jens Petersen <petersen@redhat.com> - 0.5.11-2
 - add ucm symlink
 
 * Fri Dec 15 2023 Jens Petersen <petersen@redhat.com> - 0.5.11-1
 - update to 0.5.11 (new upstream version format instead of M5k)
-- https://github.com/unisonweb/unison/releases/tag/release%2F0.5.11
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.11
 
 * Sun Nov 19 2023 Jens Petersen <petersen@redhat.com> - M5h-1
 - update to M5h

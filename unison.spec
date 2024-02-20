@@ -1,7 +1,7 @@
 %undefine _enable_debug_packages
 
 Name:           unison
-Version:        0.5.16
+Version:        0.5.17
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -13,6 +13,7 @@ Patch0:         unison-version.patch
 BuildRequires:  stack
 BuildRequires:  ghc9.2
 BuildRequires:  zlib-devel
+Recommends:     fzf
 
 %description
 Unison programming language.
@@ -46,6 +47,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Tue Feb 20 2024 Jens Petersen <petersen@redhat.com> - 0.5.17-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.17
+
 * Wed Feb 14 2024 Jens Petersen <petersen@redhat.com> - 0.5.16-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.16
 

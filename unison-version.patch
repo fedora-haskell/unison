@@ -1,5 +1,5 @@
---- unison-release-M5c/unison-cli/unison/Version.hs~	2023-08-07 23:19:33.000000000 +0800
-+++ unison-release-M5c/unison-cli/unison/Version.hs	2023-08-19 20:27:47.404964305 +0800
+--- unison-release-M5c/unison-cli-main/unison/Version.hs~	2023-08-07 23:19:33.000000000 +0800
++++ unison-release-M5c/unison-cli-main/unison/Version.hs	2023-08-19 20:27:47.404964305 +0800
 @@ -38,6 +38,5 @@
           -- Uses human-readable names whenever possible.
           -- Marks version with a `'` suffix if building on a dirty worktree.

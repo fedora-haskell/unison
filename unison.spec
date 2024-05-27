@@ -1,7 +1,7 @@
 %undefine _enable_debug_packages
 
 Name:           unison
-Version:        0.5.18
+Version:        0.5.20
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -47,6 +47,10 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Mon May 27 2024 Jens Petersen <petersen@redhat.com> - 0.5.20-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.19
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.20
+
 * Thu Feb 29 2024 Jens Petersen <petersen@redhat.com> - 0.5.18-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.18
 

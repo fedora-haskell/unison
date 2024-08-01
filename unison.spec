@@ -1,7 +1,7 @@
-%undefine _enable_debug_packages
+%define debug_package %{nil}
 
 Name:           unison
-Version:        0.5.20
+Version:        0.5.25
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -11,7 +11,7 @@ Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{
 Patch0:         unison-version.patch
 
 BuildRequires:  stack
-BuildRequires:  ghc9.2
+BuildRequires:  ghc9.6
 BuildRequires:  zlib-devel
 Recommends:     fzf
 
@@ -32,7 +32,7 @@ stack-symlink-distro-ghc 9.2.8 || :
 if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi
-LANG=C.utf8 stack --no-install-ghc --system-ghc install
+LANG=C.utf8 stack --resolver lts-22 --no-install-ghc --system-ghc install
 
 mkdir -p %{buildroot}%{_bindir}
 cp -p ~/.local/bin/unison %{buildroot}%{_bindir}
@@ -47,6 +47,10 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Thu Aug  1 2024 Jens Petersen <petersen@redhat.com> - 0.5.25-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.25
+- build with ghc9.6
+
 * Mon May 27 2024 Jens Petersen <petersen@redhat.com> - 0.5.20-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.19
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.20

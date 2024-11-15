@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:           unison
-Version:        0.5.25
+Version:        0.5.28
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -28,7 +28,6 @@ sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
 
 
 %install
-stack-symlink-distro-ghc 9.2.8 || :
 if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi
@@ -47,6 +46,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Fri Nov 15 2024 Jens Petersen <petersen@redhat.com> - 0.5.28-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.28
+
 * Thu Aug  1 2024 Jens Petersen <petersen@redhat.com> - 0.5.25-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.25
 - build with ghc9.6

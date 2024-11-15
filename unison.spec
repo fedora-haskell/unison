@@ -1,5 +1,10 @@
 %define debug_package %{nil}
 
+%if 0%{?fedora} < 41
+%global ghc_major 9.6
+%global ghc_name ghc%{?ghc_major}
+%endif
+
 Name:           unison
 Version:        0.5.28
 Release:        1%{?dist}
@@ -11,7 +16,8 @@ Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{
 Patch0:         unison-version.patch
 
 BuildRequires:  stack
-BuildRequires:  ghc9.6
+BuildRequires:  ghc%{?ghc_major}
+BuildRequires:  ghc-rpm-macros
 BuildRequires:  zlib-devel
 Recommends:     fzf
 
@@ -28,10 +34,11 @@ sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
 
 
 %install
+stack-symlink-distro-ghc %{ghc_version} || :
 if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi
-LANG=C.utf8 stack --resolver lts-22 --no-install-ghc --system-ghc install
+LANG=C.utf8 stack --resolver lts-22 --no-install-ghc install
 
 mkdir -p %{buildroot}%{_bindir}
 cp -p ~/.local/bin/unison %{buildroot}%{_bindir}

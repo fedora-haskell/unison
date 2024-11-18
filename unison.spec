@@ -38,6 +38,7 @@ stack-symlink-distro-ghc %{ghc_version} || :
 if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi
+stack update
 LANG=C.utf8 stack --resolver lts-22 --no-install-ghc install
 
 mkdir -p %{buildroot}%{_bindir}

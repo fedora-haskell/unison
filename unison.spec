@@ -6,8 +6,8 @@
 %endif
 
 Name:           unison
-Version:        0.5.28
-Release:        1%{?dist}
+Version:        0.5.29
+Release:        1%{?dist}.1
 Summary:        Unison language
 
 License:        MIT
@@ -28,6 +28,8 @@ Unison programming language.
 %prep
 %setup -q -n unison-release-%{version}
 sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
+
+sed -i "s/lts-22.26/lts-22.43/" stack.yaml
 
 
 %build

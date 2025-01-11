@@ -5,9 +5,9 @@
 %global ghc_name ghc%{?ghc_major}
 %endif
 
-Name:           unison
-Version:        0.5.29
-Release:        1%{?dist}.1
+Name:           unison-lang
+Version:        0.5.31
+Release:        1%{?dist}
 Summary:        Unison language
 
 License:        MIT
@@ -20,6 +20,7 @@ BuildRequires:  ghc%{?ghc_major}
 BuildRequires:  ghc-rpm-macros
 BuildRequires:  zlib-devel
 Recommends:     fzf
+Obsoletes:      unison < 0.5.31-2
 
 %description
 Unison programming language.
@@ -58,6 +59,8 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 %changelog
 * Fri Nov 15 2024 Jens Petersen <petersen@redhat.com> - 0.5.28-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.28
+- renamed to unison-lang and obsoletes unison-0.5.*
+  (unison file sync tool was added back to Fedora last year)
 
 * Thu Aug  1 2024 Jens Petersen <petersen@redhat.com> - 0.5.25-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.25

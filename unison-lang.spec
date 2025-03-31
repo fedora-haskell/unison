@@ -6,7 +6,7 @@
 %endif
 
 Name:           unison-lang
-Version:        0.5.31
+Version:        0.5.32
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -21,6 +21,8 @@ BuildRequires:  ghc-rpm-macros
 BuildRequires:  zlib-devel
 Recommends:     fzf
 Obsoletes:      unison < 0.5.31-2
+# unison file sync tool reappeared in Fedora
+Conflicts:      unison > 2.53
 
 %description
 Unison programming language.

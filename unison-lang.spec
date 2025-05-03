@@ -6,7 +6,7 @@
 %endif
 
 Name:           unison-lang
-Version:        0.5.32
+Version:        0.5.37
 Release:        1%{?dist}
 Summary:        Unison language
 

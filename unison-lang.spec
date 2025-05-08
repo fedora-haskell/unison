@@ -1,6 +1,8 @@
 %define debug_package %{nil}
 
-#%%global ghc_major 9.6
+%global ghc_major 9.6
+
+%global stackage lts-22.44
 
 Name:           unison-lang
 Version:        0.5.38
@@ -11,6 +13,7 @@ License:        MIT
 URL:            https://www.unison-lang.org/
 Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{version}.tar.gz#/unison-release-%{version}.tar.gz
 Patch0:         unison-version.patch
+Patch1:         stack-gnu17.patch
 
 BuildRequires:  stack
 BuildRequires:  ghc%{?ghc_major}
@@ -28,8 +31,9 @@ Unison programming language.
 %prep
 %setup -q -n unison-release-%{version}
 %patch -P0 -p1 -b .orig
+%patch -P1 -p1 -b .orig
 
-sed s/@VERSION@/%{version}/ unison-cli-main/unison/Version.hs
+sed -i s/@VERSION@/%{version}/ unison-cli-main/unison/Version.hs
 
 
 %build
@@ -41,7 +45,7 @@ if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi
 stack update
-LANG=C.utf8 stack --resolver lts-22.43 --no-install-ghc install
+LANG=C.utf8 stack --resolver %{stackage} --no-install-ghc install
 
 mkdir -p %{buildroot}%{_bindir}
 cp -p ~/.local/bin/unison %{buildroot}%{_bindir}
@@ -56,7 +60,7 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
-* Sat May 03 2025 Jens Petersen <petersen@redhat.com> - 0.5.38-1
+* Thu May 08 2025 Jens Petersen <petersen@redhat.com> - 0.5.38-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.38
 
 * Fri Nov 15 2024 Jens Petersen <petersen@redhat.com> - 0.5.28-1

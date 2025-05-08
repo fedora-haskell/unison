@@ -1,0 +1,10 @@
+--- unison-release-0.5.38/stack.yaml~	2025-04-29 01:11:45.000000000 +0800
++++ unison-release-0.5.38/stack.yaml	2025-05-08 14:35:41.265599517 +0800
+@@ -79,4 +79,7 @@
+   # See https://github.com/haskell/haskell-language-server/issues/208
+   "$everything": -haddock
+ 
++  hashable: -optc=-std=gnu17
++  hashtables: -optc=-std=gnu17
++
+   statistics: -fsimpl-tick-factor=10000 # statistics fails on GHC 9 without this, https://github.com/haskell/statistics/issues/173

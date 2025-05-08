@@ -27,9 +27,9 @@ Unison programming language.
 
 %prep
 %setup -q -n unison-release-%{version}
-sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
+%patch -P0 -p1 -b .orig
 
-#sed -i "s/lts-22.26/lts-22.43/" stack.yaml
+sed s/@VERSION@/%{version}/ unison-cli-main/unison/Version.hs
 
 
 %build

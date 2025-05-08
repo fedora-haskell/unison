@@ -1,6 +1,8 @@
 %define debug_package %{nil}
 
+%if %{undefined fc42} && %{undefined fc41}
 %global ghc_major 9.6
+%endif
 %global ghc_name ghc%{?ghc_major}
 
 %if 0%{?fedora} >= 43 || 0%{?rhel} >= 10

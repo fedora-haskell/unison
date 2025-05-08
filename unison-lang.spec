@@ -1,9 +1,6 @@
 %define debug_package %{nil}
 
-%if 0%{?fedora} < 41
-%global ghc_major 9.6
-%global ghc_name ghc%{?ghc_major}
-%endif
+#%%global ghc_major 9.6
 
 Name:           unison-lang
 Version:        0.5.38
@@ -32,7 +29,7 @@ Unison programming language.
 %setup -q -n unison-release-%{version}
 sed s/@VERSION@/%{version}/ %{PATCH0} | patch -p1
 
-sed -i "s/lts-22.26/lts-22.43/" stack.yaml
+#sed -i "s/lts-22.26/lts-22.43/" stack.yaml
 
 
 %build
@@ -44,7 +41,7 @@ if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi
 stack update
-LANG=C.utf8 stack --resolver lts-22 --no-install-ghc install
+LANG=C.utf8 stack --resolver lts-22.43 --no-install-ghc install
 
 mkdir -p %{buildroot}%{_bindir}
 cp -p ~/.local/bin/unison %{buildroot}%{_bindir}

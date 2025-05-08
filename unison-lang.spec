@@ -3,7 +3,11 @@
 %global ghc_major 9.6
 %global ghc_name ghc%{?ghc_major}
 
+%if 0%{?fedora} >= 43 || 0%{?rhel} >= 10
 %global stackage lts-22.44
+%else
+%global stackage lts-22.43
+%endif
 
 Name:           unison-lang
 Version:        0.5.38

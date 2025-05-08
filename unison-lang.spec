@@ -1,6 +1,7 @@
 %define debug_package %{nil}
 
 %global ghc_major 9.6
+%global ghc_name ghc%{?ghc_major}
 
 %global stackage lts-22.44
 
@@ -40,7 +41,7 @@ sed -i s/@VERSION@/%{version}/ unison-cli-main/unison/Version.hs
 
 
 %install
-stack-symlink-distro-ghc %{ghc_version} || :
+stack-symlink-distro-ghc %{ghc_version}
 if [ -d "$HOME/.stack/programs/ppc64le-linux" ]; then
 mv $HOME/.stack/programs/{ppc64le,ppc64}-linux
 fi

@@ -12,7 +12,7 @@
 %endif
 
 Name:           unison-lang
-Version:        0.5.39
+Version:        0.5.40
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -67,6 +67,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Thu May 09 2025 Eduardo Hernacki <eh@runlevel0.me> - 0.5.40-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.40
+
 * Thu May 08 2025 Jens Petersen <petersen@redhat.com> - 0.5.39-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.39
 

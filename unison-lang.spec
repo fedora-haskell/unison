@@ -5,14 +5,14 @@
 %endif
 %global ghc_name ghc%{?ghc_major}
 
-%if 0%{?fedora} >= 43 || 0%{?rhel} >= 10
-%global stackage lts-22.44
-%else
+%if %{defined el9}
 %global stackage lts-22.43
+%else
+%global stackage lts-22.44
 %endif
 
 Name:           unison-lang
-Version:        0.5.42
+Version:        0.5.44
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -67,6 +67,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Thu Jul 31 2025 Jens Petersen <petersen@redhat.com> - 0.5.44-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.44
+
 * Mon Jun 30 2025 Jens Petersen <petersen@redhat.com> - 0.5.42-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.42
 

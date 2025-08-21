@@ -1,8 +1,6 @@
 %define debug_package %{nil}
 
-%if %{undefined fc42} && %{undefined fc41}
 %global ghc_major 9.6
-%endif
 %global ghc_name ghc%{?ghc_major}
 
 %if %{defined el9}
@@ -12,7 +10,7 @@
 %endif
 
 Name:           unison-lang
-Version:        0.5.44
+Version:        0.5.45
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -67,6 +65,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Thu Aug 21 2025 Jens Petersen <petersen@redhat.com> - 0.5.45-1
+- https://github.com/unisonweb/unison/releases/tag/release/0.5.45
+
 * Thu Jul 31 2025 Jens Petersen <petersen@redhat.com> - 0.5.44-1
 - https://github.com/unisonweb/unison/releases/tag/release/0.5.44
 

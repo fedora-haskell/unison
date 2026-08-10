@@ -1,16 +1,9 @@
 %define debug_package %{nil}
 
-%global ghc_major 9.6
-%global ghc_name ghc%{?ghc_major}
-
-%if %{defined el9}
 %global stackage lts-24
-%else
-%global stackage lts-24
-%endif
 
 Name:           unison-lang
-Version:        1.2.0
+Version:        1.3.0
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -18,10 +11,9 @@ License:        MIT
 URL:            https://www.unison-lang.org/
 Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{version}.tar.gz#/unison-release-%{version}.tar.gz
 Patch0:         unison-version.patch
-Patch1:         stack-gnu17.patch
 
 BuildRequires:  stack
-BuildRequires:  ghc%{?ghc_major}
+BuildRequires:  ghc
 BuildRequires:  ghc-rpm-macros
 BuildRequires:  zlib-devel
 Recommends:     fzf
@@ -36,7 +28,6 @@ Unison programming language.
 %prep
 %setup -q -n unison-release-%{version}
 %patch -P0 -p1 -b .orig
-# %%patch -P1 -p1 -b .orig
 
 sed -i s/@VERSION@/%{version}/ unison-cli-main/unison/Version.hs
 
@@ -65,6 +56,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Mon Aug 10 2026 Jens Petersen <petersen@redhat.com> - 1.3.0-1
+- https://github.com/unisonweb/unison/releases/tag/release/1.3.0
+
 * Sun Apr 19 2026 Jens Petersen <petersen@redhat.com> - 1.2.0-1
 - https://github.com/unisonweb/unison/releases/tag/release/1.2.0
 

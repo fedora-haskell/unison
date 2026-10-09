@@ -1,5 +1,10 @@
 %define debug_package %{nil}
 
+%if 0%{?fedora} < 44
+%global ghc_major 9.10
+%global ghc_name ghc%{?ghc_major}
+%endif
+
 %global stackage lts-24
 
 Name:           unison-lang
@@ -13,7 +18,7 @@ Source0:        https://github.com/unisonweb/unison/archive/refs/tags/release/%{
 Patch0:         unison-version.patch
 
 BuildRequires:  stack
-BuildRequires:  ghc
+BuildRequires:  ghc%{?ghc_major}
 BuildRequires:  ghc-rpm-macros
 BuildRequires:  zlib-devel
 Recommends:     fzf

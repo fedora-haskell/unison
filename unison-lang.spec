@@ -8,7 +8,7 @@
 %global stackage lts-24
 
 Name:           unison-lang
-Version:        1.3.0
+Version:        1.5.0
 Release:        1%{?dist}
 Summary:        Unison language
 
@@ -61,6 +61,9 @@ ln -s unison %{buildroot}%{_bindir}/ucm
 
 
 %changelog
+* Fri Oct 09 2026 Jens-Ulrik Petersen <petersen@redhat.com> - 1.5.0-1
+- https://github.com/unisonweb/unison/releases/tag/release/1.5.0
+
 * Mon Aug 10 2026 Jens Petersen <petersen@redhat.com> - 1.3.0-1
 - https://github.com/unisonweb/unison/releases/tag/release/1.3.0
 
